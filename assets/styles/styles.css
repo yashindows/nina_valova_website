@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color-primary: #e8e8e8;
+  --header-bg-color: #f3eeeb;
+  --text-color-primary: #000;
+}
+
+body,
+a {
+  color: var(--text-color-primary);
+}
+
+body {
+  font-family: "Cormorant", serif;
+  background-color: var(--bg-color-primary);
+}
+
+.wrapper {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100dvh;
+}
+
+.container {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header-navigation,
+.header .container,
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-navigation {
+  column-gap: 40px;
+}
+
+.header .container {
+  background-color: var(--header-bg-color);
+  padding-block: 1rem;
+  justify-content: space-between;
+}
+
+.menu__body {
+  display: flex;
+  column-gap: 30px;
+  font-size: 11px;
+}
+
+.header-info,
+.info-box {
+  display: flex;
+}
+
+.header-info {
+  column-gap: 75px;
+  font-size: 13px;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.info-box {
+  align-items: flex-start;
+  column-gap: 5px;
+}
+
+.banner .container {
+  padding-left: 85px;
+  display: flex;
+  position: relative;
+  justify-content: end;
+  padding: 0;
+}
+
+.banner-title {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  z-index: 1;
+  position: absolute;
+  left: 85px;
+  top: 160px;
+  align-items: start;
+}
+
+.top-title {
+  font-size: 26px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #d4b2a6;
+  max-width: 455px;
+}
+
+.title {
+  font-family: "Poiret One";
+  font-size: 54px;
+  font-weight: 400;
+  letter-spacing: 27.54px;
+}
+
+.bottom-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 2.75px;
+  max-width: 390px;
+  margin-bottom: 80px;
+}
+
+.banner-img {
+  height: 680px;
+  background-color: #d4b2a6;
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.banner-btn {
+  padding: 12px 74px;
+  border: 1px solid #d4b2a6;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  max-width: 400px;
+}
