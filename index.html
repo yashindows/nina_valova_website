@@ -58,7 +58,7 @@
         </div>
       </header>
       <main class="main">
-        <div class="banner">
+        <section class="banner">
           <div class="container">
             <div class="banner-title">
               <p class="top-title">Студия перманентного макияжа</p>
@@ -66,17 +66,52 @@
               <p class="bottom-title">
                 дипломированный специалист в области перманентного макияжа
               </p>
-              <button class="banner-btn">ОНЛАЙН-ЗАПИСЬ</button>
+              <button onclick="show()" class="banner-btn">ОНЛАЙН-ЗАПИСЬ</button>
             </div>
             <div class="banner-img">
               <img src="./assets/img/banner-img.png" alt="banner-image" />
             </div>
           </div>
-        </div>
+        </section>
+        <section class="quick-info">
+          <div class="container">
+            <img
+              class="quick-info__image"
+              src="./assets/img/ivy-aralia-nizar-420dKcPcvAE-unsplash 1.png"
+              alt=""
+            />
+            <div class="info">
+              <p class="info-title">
+                ПЕРМАНЕНТНЫЙ МАКИЯЖ ПРОЦЕДУРА, КОТОРАЯ ВЫПОЛНЯЕТСЯ В ДВА ЭТАПА:
+              </p>
+              <ol class="info-list">
+                <li class="info__item">Первичная процедура</li>
+                <li class="info__item">
+                  Процедура коррекции, которая обязательно должна быть проведена
+                  через 1-2 месяца после первичной процедуры.
+                </li>
+              </ol>
+              <p class="info-warning">
+                БЕЗ КОРРЕКЦИИ ПРОЦЕДУРА СЧИТАЕТСЯ НЕЗАКОНЧЕННОЙ
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <div class="footer">
-        <div class="container">footer</div>
+        <div class="container">
+          <img class="footer-logo" src="./public/logo.svg" alt="" />
+          <span>© Все права защищены</span>
+        </div>
       </div>
+      <dialog>онлайн запись</dialog>
     </div>
+    <script>
+      const popup = document.querySelector("dialog");
+
+      function show() {
+        popup.showModal();
+      }
+    </script>
   </body>
 </html>
