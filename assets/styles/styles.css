@@ -149,15 +149,19 @@ body {
   justify-content: end;
 }
 
-.banner-btn {
+.btn {
   padding: 12px 74px;
   border: 1px solid #d4b2a6;
-  background-color: transparent;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 3px;
   max-width: 400px;
   transition: 0.1s;
+}
+
+.banner-btn {
+  border: 1px solid #d4b2a6;
+  background-color: transparent;
 }
 
 .banner-btn:hover {

@@ -1,0 +1,46 @@
+.service .container {
+  text-align: center;
+  padding-block: 55px 80px;
+  padding-inline: 0;
+  max-width: 1240px;
+}
+
+.service-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  margin-bottom: 75px;
+}
+
+.service__title {
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.125em;
+  margin-bottom: 65px;
+}
+
+.service-item {
+  height: 500px;
+  width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+}
+
+.item__title {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.125em;
+  color: #ffffff;
+}
+
+.service-btn {
+  border: 1px solid #000;
+  text-transform: uppercase;
+}
+
+.service-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
