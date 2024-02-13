@@ -14,6 +14,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="shortcut icon" href="./public/logo.svg" type="image/x-icon" />
+    <script src="./assets/js/burger.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
@@ -46,20 +48,29 @@
               </ul>
             </nav>
           </div>
-          <div class="header-info">
-            <div class="info-box">
-              <img src="./assets/img/icons/location.svg" alt="icon" />
-              <div class="box-text">
-                <p>Москва,<br />Нахимовский проспект 7 к1</p>
+          <div class="header-info-wrapper">
+            <div class="header-info">
+              <div class="info-box">
+                <img src="./assets/img/icons/location.svg" alt="icon" />
+                <div class="box-text">
+                  <p>Москва,<br />Нахимовский проспект 7 к1</p>
+                </div>
+              </div>
+              <div class="info-box">
+                <img src="./assets/img/icons/phone.svg" alt="icon" />
+                <div class="box-text">
+                  <a class="phone" href="tel:+79257317383"
+                    >+7 (925) 731-73-83</a
+                  >
+                  <p class="phone-label">Обратный звонок</p>
+                </div>
+                <p></p>
               </div>
             </div>
-            <div class="info-box">
-              <img src="./assets/img/icons/phone.svg" alt="icon" />
-              <div class="box-text">
-                <a class="phone" href="tel:+79257317383">+7 (925) 731-73-83</a>
-                <p class="phone-label">Обратный звонок</p>
-              </div>
-              <p></p>
+            <div class="menu-icon">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -67,10 +78,10 @@
       <main class="main">
         <section class="banner">
           <div class="container">
-            <div class="banner-title">
-              <p class="top-title">Студия перманентного макияжа</p>
+            <div class="banner-text">
+              <p class="top-text">Студия перманентного макияжа</p>
               <h1 class="title">NINA VALOVA</h1>
-              <p class="bottom-title">
+              <p class="bottom-text">
                 дипломированный специалист в области перманентного макияжа
               </p>
               <button onclick="show()" class="btn banner-btn">
@@ -126,13 +137,13 @@
       </dialog>
     </div>
     <script>
-      const popup = document.querySelector("dialog");
+      const popup = document.querySelector("dialog")
 
       function show() {
-        popup.showModal();
+        popup.showModal()
       }
       function closeModal() {
-        popup.close();
+        popup.close()
       }
     </script>
   </body>
