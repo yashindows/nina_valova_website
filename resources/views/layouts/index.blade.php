@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="rus">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    @vite(['resources/css/app.css'])
+    @vite(['resources/js/app.js'])
     <title>Nina Valova main page</title>
-    <link rel="stylesheet" href="./assets/styles/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -19,35 +19,31 @@
       href="./public/logo-favicon.svg"
       type="image/x-icon"
     />
-    <script src="./assets/js/burger.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
       <header class="header">
         <div class="container">
           <div class="header-navigation">
-            <a href="./index.html" class="header-logo">
-              <img src="./public/logo.svg" alt="logo" />
+            <a href="{{ route('main') }}" class="header-logo">
+              <img src="/logo.svg" alt="logo" />
             </a>
             <nav class="header-menu">
               <ul class="menu__body">
                 <li class="menu__item">
-                  <a href="" class="menu__link">ГЛАВНАЯ</a>
+                  <a href="{{ route('about') }}" class="menu__link">ОБО МНЕ</a>
                 </li>
                 <li class="menu__item">
-                  <a href="./about.html" class="menu__link">ОБО МНЕ</a>
+                  <a href="{{ route('services.index') }}" class="menu__link">УСЛУГИ</a>
                 </li>
                 <li class="menu__item">
-                  <a href="./grid.html" class="menu__link">УСЛУГИ</a>
+                  <a href="{{ route('portfolio.index') }}" class="menu__link">ПОРТФОЛИО</a>
                 </li>
                 <li class="menu__item">
-                  <a href="./grid.html" class="menu__link">ПОРТФОЛИО</a>
+                  <a href="{{ route('guide') }}" class="menu__link">ВАЖНО ЗНАТЬ</a>
                 </li>
                 <li class="menu__item">
-                  <a href="./guide.html" class="menu__link">ВАЖНО ЗНАТЬ</a>
-                </li>
-                <li class="menu__item">
-                  <a href="./map.html" class="menu__link">КОНТАКТЫ</a>
+                  <a href="{{ route('contacts') }}" class="menu__link">КОНТАКТЫ</a>
                 </li>
               </ul>
             </nav>
@@ -55,13 +51,13 @@
           <div class="header-info-wrapper">
             <div class="header-info">
               <div class="info-box">
-                <img src="./assets/img/icons/location.svg" alt="icon" />
+                <img src="{{asset('img/icons/location.svg')}}" alt="icon" />
                 <div class="box-text">
                   <p>Москва,<br />Нахимовский проспект 7 к1</p>
                 </div>
               </div>
               <div class="info-box">
-                <img src="./assets/img/icons/phone.svg" alt="icon" />
+                <img src="{{asset('img/icons/phone.svg')}}" alt="icon" />
                 <div class="box-text">
                   <a class="phone" href="tel:+79257317383"
                     >+7 (925) 731-73-83</a
@@ -79,48 +75,7 @@
           </div>
         </div>
       </header>
-      <main class="main">
-        <section class="banner">
-          <div class="container">
-            <div class="banner-text">
-              <p class="top-text">Студия перманентного макияжа</p>
-              <h1 class="title">NINA VALOVA</h1>
-              <p class="bottom-text">
-                дипломированный специалист в области перманентного макияжа
-              </p>
-              <button onclick="show()" class="btn banner-btn">
-                ОНЛАЙН-ЗАПИСЬ
-              </button>
-            </div>
-            <div class="banner-img">
-              <img src="./assets/img/banner-img.png" alt="banner-image" />
-            </div>
-          </div>
-        </section>
-        <section class="quick-info">
-          <div class="container">
-            <img
-              class="quick-info__image"
-              src="./assets/img/ivy-aralia-nizar-420dKcPcvAE-unsplash 1.png"
-              alt=""
-            />
-            <div class="info">
-              <p class="info-title">
-                ПЕРМАНЕНТНЫЙ МАКИЯЖ ПРОЦЕДУРА, КОТОРАЯ ВЫПОЛНЯЕТСЯ В ДВА ЭТАПА:
-              </p>
-              <ol class="info-list">
-                <li class="info__item">Первичная процедура</li>
-                <li class="info__item">
-                  Процедура коррекции, которая обязательно должна быть проведена
-                  через 1-2 месяца после первичной процедуры.
-                </li>
-              </ol>
-              <p class="info-warning">
-                БЕЗ КОРРЕКЦИИ ПРОЦЕДУРА СЧИТАЕТСЯ НЕЗАКОНЧЕННОЙ
-              </p>
-            </div>
-          </div>
-        </section>
+        @yield('content')
       </main>
       <footer class="footer">
         <div class="container">

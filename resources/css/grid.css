@@ -35,28 +35,28 @@
 }
 
 .service-item:nth-child(1) {
-  background: url("../img/young-woman-getting-beauty-treatment-her-eyebrows\ 2.png")
+  background: url("./images/young-woman-getting-beauty-treatment-her-eyebrows\ 2.png")
     no-repeat center;
 }
 .service-item:nth-child(2) {
-  background: url("../img/beautiful-young-woman-going-through-microblading-treatment\ 2.png")
+  background: url("./images/beautiful-young-woman-going-through-microblading-treatment\ 2.png")
     no-repeat center;
 }
 .service-item:nth-child(3) {
-  background: url("../img/beautiful-young-woman-going-through-microblading-treatment\ 3.png")
+  background: url("./images/beautiful-young-woman-going-through-microblading-treatment\ 3.png")
     no-repeat center;
 }
 .service-item:nth-child(4) {
-  background: url("../img/young-woman-getting-beauty-treatment-her-eyebrows\ 4.png")
+  background: url("./images/young-woman-getting-beauty-treatment-her-eyebrows\ 4.png")
     no-repeat center;
 }
 .service-item:nth-child(5) {
-  background: url("../img/tony-litvyak-V1HlnmgS1fM-unsplash\ 1.png") no-repeat
+  background: url("./images/tony-litvyak-V1HlnmgS1fM-unsplash\ 1.png") no-repeat
     center;
 }
 
 .service-item:nth-child(6) {
-  background: url("../img/beautician-working-client-s-eyebrows\ 1.png")
+  background: url("./images/beautician-working-client-s-eyebrows\ 1.png")
     no-repeat center;
 }
 

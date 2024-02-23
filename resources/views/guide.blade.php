@@ -1,63 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./assets/styles/reset.css" />
-    <title>Nina Valova main page</title>
-    <link rel="stylesheet" href="./assets/styles/styles.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <div class="container">
-          <div class="header-navigation">
-            <a href="./index.html" class="header-logo">
-              <img src="./public/logo.svg" alt="logo" />
-            </a>
-            <nav class="header-menu">
-              <ul class="menu__body">
-                <li class="menu__item">
-                  <a href="" class="menu__link">ГЛАВНАЯ</a>
-                </li>
-                <li class="menu__item">
-                  <a href="./about.html" class="menu__link">ОБО МНЕ</a>
-                </li>
-                <li class="menu__item">
-                  <a href="./grid.html" class="menu__link">УСЛУГИ</a>
-                </li>
-                <li class="menu__item">
-                  <a href="./grid.html" class="menu__link">ПОРТФОЛИО</a>
-                </li>
-                <li class="menu__item">
-                  <a href="" class="menu__link">ВАЖНО ЗНАТЬ</a>
-                </li>
-                <li class="menu__item">
-                  <a href="./map.html" class="menu__link">КОНТАКТЫ</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="header-info">
-            <div class="info-box">
-              <img src="./assets/img/icons/location.svg" alt="icon" />
-              <div class="box-text">
-                <p>Москва,<br />Нахимовский проспект 7 к1</p>
-              </div>
-            </div>
-            <div class="info-box">
-              <img src="./assets/img/icons/phone.svg" alt="icon" />
-              <div class="box-text">
-                <a class="phone" href="tel:+79257317383">+7 (925) 731-73-83</a>
-                <p class="phone-label">Обратный звонок</p>
-              </div>
-              <p></p>
-            </div>
-          </div>
-        </div>
-      </header>
-      <main class="main">
+@extends('layouts.index')
+@section('content')
+<main class="main">
         <section class="guide">
           <div class="container">
             <div class="guide-title">Важно знать</div>
@@ -196,12 +139,4 @@
           </div>
         </section>
       </main>
-      <footer class="footer">
-        <div class="container">
-          <img class="footer-logo" src="./public/logo.svg" alt="" />
-          <span>© Все права защищены</span>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
+@endsection
