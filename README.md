@@ -52,7 +52,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Как запустить
 
 - Установить [composer](https://getcomposer.org/download/) (Когда установщик спросит про php, выбрать папку php8.1 в open server panel) и [node js](https://nodejs.org/en), если не установлен
-- Открыть папку с проектом в консоли, ввести <code>composer install</code>, <code>npm install</code>, <code>npm run build</code>
+- Открыть папку с проектом в консоли, ввести <code>composer install</code>, <code>npm install</code>, <code>npm run build</code> по очереди
 - Создать в корне проекта .env файл, скопировать [отсюда](https://github.com/platformsh-templates/laravel/blob/master/.env.example)
 - В .env файле поменять DB_DATABASE=laravel на DB_DATABASE=test-proj
 - Запустить локальный сервер с базой данных 
