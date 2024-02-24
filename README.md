@@ -56,5 +56,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Создать в корне проекта .env файл, скопировать [отсюда](https://github.com/platformsh-templates/laravel/blob/master/.env.example)
 - В .env файле поменять DB_DATABASE=laravel на DB_DATABASE=test-proj
 - Запустить локальный сервер с базой данных 
-- В той же консоли, где ранее вводились команды <code>php artisan serve</code>
+- В той же консоли, где ранее вводились команды: <code>php artisan serve</code>
 - Перейти по ссылке в терминале
