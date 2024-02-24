@@ -64,3 +64,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Как запустить
+
+- Установить [composer](https://getcomposer.org/download/)
+- Открыть папку с проектом в консоли, ввести <code>composer install</code>
+- Затем в том же терминале <code>php artisan serve</code>
+- follow link in cli
