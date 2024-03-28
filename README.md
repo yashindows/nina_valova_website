@@ -33,22 +33,6 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
@@ -64,3 +48,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Как запустить
+
+- Установить [composer](https://getcomposer.org/download/) (Когда установщик спросит про php, выбрать папку php8.1 в open server panel) и [node js](https://nodejs.org/en), если не установлен
+- Открыть папку с проектом в консоли, ввести <code>composer install</code>, <code>npm install</code>, <code>npm run build</code> по очереди
+- Создать в корне проекта .env файл, скопировать [отсюда](https://github.com/platformsh-templates/laravel/blob/master/.env.example)
+- В .env файле поменять DB_DATABASE=laravel на DB_DATABASE=test-proj
+- Запустить локальный сервер с базой данных 
+- В той же консоли, где ранее вводились команды: <code>php artisan serve</code>
+- Перейти по ссылке в терминале
