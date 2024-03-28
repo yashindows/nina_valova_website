@@ -1,0 +1,40 @@
+.common-text {
+  font-size: 24px;
+}
+
+.section-title-text {
+  font-size: 26px;
+}
+
+.section-item-text {
+  font-size: 22px;
+}
+
+@media (max-width: 1240px) {
+  .section-title-text {
+    font-size: 22px;
+  }
+  .section-item-text {
+    font-size: 18px;
+  }
+  .common-text {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1160px) {
+  .section-title-text {
+    font-size: 18px;
+  }
+  .section-item-text {
+    font-size: 14px;
+  }
+  .common-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-title-text {
+    font-size: 14px;
+  }
+}

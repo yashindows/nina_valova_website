@@ -1,2 +1,3 @@
-import './bootstrap';
-import './burger'
+import "./bootstrap";
+import "./burger";
+import "./showContacts";
