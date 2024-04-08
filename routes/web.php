@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GridController;
+use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\MyPlaceController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-})->name('main');
+Route::get('/', [MainPageController::class, 'index'])->name('main.index');
 
 Route::get('/about', function () {
     return view('about');
@@ -32,6 +31,6 @@ Route::get('/guide', function () {
     return view('guide');
 })->name('guide');
 
-Route::get('/portfolio', [GridController::class, 'index'])->name('portfolio.index');
+Route::get('/portfolio', [GridController::class, 'portfolio'])->name('portfolio.index');
 
-Route::get('/services', [GridController::class, 'index'])->name('services.index');
+Route::get('/services', [GridController::class, 'services'])->name('services.index');

@@ -59,10 +59,16 @@
     justify-self: start;
     color: var(--text-color-primary);
     top: -100%;
-    padding: 50px;
+    padding: 30px;
     text-align: left;
     background-color: #ffffff;
     transition: 0.1s;
+    z-index: 15;
+    font-size: 20px;
+    width: 100%;
+}
+.item-info p::first-letter {
+    text-transform: uppercase;
 }
 
 @media (max-width: 1160px) {

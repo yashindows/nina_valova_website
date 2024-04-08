@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   @vite(['resources/css/app.css'])
   @vite(['resources/js/app.js'])
-  <title>Nina Valova main page</title>
+  <title>{{$title}}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="/logo-favicon.svg" type="image/x-icon" />
 </head>
@@ -17,7 +17,7 @@
     <header class="header">
       <div class="container">
         <div class="header-navigation">
-          <a href="{{ route('main') }}" class="header-logo">
+          <a href="{{ route('main.index') }}" class="header-logo">
             <img src="/logo.svg" alt="logo" />
           </a>
           <nav class="header-menu">

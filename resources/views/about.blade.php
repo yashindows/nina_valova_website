@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.index', ['title' => 'Обо мне'])
 @section('content')
 <main class="main">
   <section class="about">

@@ -1,11 +1,12 @@
-@extends('layouts.index')
+@extends('layouts.index', ['title' => 'Главная'])
 @section('content')
+@foreach($assets as $assets)
 <main class="main">
   <section class="banner">
     <div class="container" style="padding-inline: 0">
       <div class="banner-text">
         <p class="top-text">Студия перманентного макияжа</p>
-        <h1 class="title">NINA VALOVA</h1>
+        <h1 class="title">{{$assets->title}}</h1>
         <p class="bottom-text">
           дипломированный специалист в области перманентного макияжа
         </p>
@@ -14,7 +15,7 @@
         </button>
       </div>
       <div class="banner-img">
-        <img src="{{asset('img/banner-img.png')}}" alt="banner-image" />
+        <img src="{{asset('img/' . $assets->main_image)}}" alt="banner-image" />
       </div>
     </div>
   </section>
@@ -39,4 +40,5 @@
     </div>
   </section>
 </main>
+@endforeach
 @endsection

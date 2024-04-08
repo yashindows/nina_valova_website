@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.index', ['title' => 'Важно знать'])
 @section('content')
 <main class="main">
   <section class="guide">
