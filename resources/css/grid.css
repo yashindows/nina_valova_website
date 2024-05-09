@@ -48,6 +48,7 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
+    transition: 0.1s;
 }
 
 .item-info {
@@ -69,6 +70,10 @@
 }
 .item-info p::first-letter {
     text-transform: uppercase;
+}
+
+.scalable:hover img {
+    scale: 1.1;
 }
 
 @media (max-width: 1160px) {

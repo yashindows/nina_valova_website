@@ -66,25 +66,65 @@
       </div>
     </header>
     @yield('content')
-    </main>
     <footer class="footer">
       <div class="container">
         <img class="footer-logo" src="./public/logo.svg" alt="" />
         <span>© Все права защищены</span>
       </div>
     </footer>
+    @if(isset($procedures))
     <dialog>
-      <div class="dialog-title section-title-text">Заполните форму и ожидайте звонка</div>
+      <div class="dialog-title section-title-text">Онлайн запись</div>
       <button class="close-popup" onclick="closeModal()">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <form action="">
-        <input placeholder="Ваше имя" class="popup-input section-item-text" type="text" />
-        <input placeholder="Ваш телефон" class="popup-input section-item-text" type="text" />
-        <input class="btn popup-input" type="submit" />
+      <form id="regForm" method="post" action="/send">
+        @csrf
+        <!-- Одна "вкладка" для каждого этапа -->
+        <div class="tab">
+          <p><input name="name" class="popup-input section-item-text" style="text-transform: capitalize;" placeholder="Как к Вам обращаться" oninput="this.className = 'popup-input section-item-text'"></p>
+          <p><input name="phone" value="+7" type="text" class="popup-input section-item-text tel" id="phone" placeholder="Телефон" oninput="this.className = 'popup-input section-item-text'"></p>
+        </div>
+
+        <div class="tab">
+          <div class="time-section">
+            <div class="section-title-text">Выберите дату и время</div>
+            <div class="time-item">
+              @foreach($procedures as $procedure)
+              <input type="radio" id="{{ $procedure->id }}" name="time" value="{{$procedure->procedure_date}}" />
+              <label for="{{ $procedure->id }}">{{$procedure->procedure_date}}</label>
+              @endforeach
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="time-section">
+            <div class="section-title-text">Выберите мастера</div>
+            <div class="time-item">
+              @foreach($masters as $master)
+              <input type="radio" id="master_{{ $master->id }}" name="master" value="{{$master->name}}" />
+              <label for="master_{{ $master->id }}">{{$master->name}}</label>
+              @endforeach
+            </div>
+          </div>
+        </div>
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" class="btn" id="prevBtn" onclick="nextPrev(-1)">Назад</button>
+            <button type="button" class="btn" id="nextBtn" onclick="nextPrev(1)">Далее</button>
+          </div>
+        </div>
+
+        <!-- Кружки, показывающие этапы формы -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
       </form>
     </dialog>
   </div>
+
   <script>
     const popup = document.querySelector("dialog")
 
@@ -95,7 +135,128 @@
     function closeModal() {
       popup.close()
     }
+
+    var currentTab = 0; // Устанавливаем первую (0) вкладку как текущую
+    showTab(currentTab); // Отображаем текущую вкладку
+
+    function showTab(n) {
+      // Эта функция отображает заданную вкладку формы ...
+      var x = document.getElementsByClassName("tab");
+      x[n].style.display = "flex";
+      // ... и фиксирует кнопки Назад/Дальше:
+      if (n == 0) {
+        document.getElementById("prevBtn").style.display = "none";
+      } else {
+        document.getElementById("prevBtn").style.display = "inline-block";
+      }
+      if (n == x.length - 1) {
+        document.getElementById("nextBtn").innerHTML = "Записаться";
+      } else {
+        document.getElementById("nextBtn").innerHTML = "Далее";
+      }
+      // ... и запускает функцию, отображающую корректный индикатор этапа:
+      fixStepIndicator(n);
+    }
+
+    function nextPrev(n) {
+      // Это функция определяет какую вкладку отображать
+      var x = document.getElementsByClassName("tab");
+      // Выйти из функции, если какое-нибудь поле текущей вкладки заполнено неверно:
+      if (n == 1 && !validateForm()) return false;
+      // Скрыть текущую вкладку:
+      x[currentTab].style.display = "none";
+      // Увеличить или уменьшить номер текущей вкладки на 1:
+      currentTab = currentTab + n;
+      // если вы достигли конца формы... :
+      if (currentTab >= x.length) {
+        //...то данные формы отправляются на сервер:
+        document.getElementById("regForm").submit();
+        return false;
+      }
+      // Иначе, отображаем нужную вкладку:
+      showTab(currentTab);
+    }
+
+    function validateForm() {
+      // Это функция проверяет заполнение полей формы
+      var x,
+        y,
+        i,
+        valid = true;
+      x = document.getElementsByClassName("tab");
+      y = x[currentTab].getElementsByTagName("input");
+      // Цикл, который проверяет каждое поле ввода текущей вкладки:
+      for (i = 0; i < y.length; i++) {
+        // Если поле пустое...
+        if (y[i].value == "") {
+          // добавляем ему класс "invalid":
+          y[i].className += " invalid";
+          // и устанавливаем текущий статус валидности в false:
+          valid = false;
+        }
+      }
+      // Если статус валидности true, помечаем этот шаг как завершенный и валидный:
+      if (valid) {
+        document.getElementsByClassName("step")[currentTab].className +=
+          " finish";
+      }
+      return valid; // возвращаем статус валидности
+    }
+
+    function fixStepIndicator(n) {
+      // Эта функция удаляет класс "active" у всех этапов...
+      var i,
+        x = document.getElementsByClassName("step");
+      for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" active", "");
+      }
+      //... и добавляет класс "active" текущему этапу:
+      x[n].className += " active";
+    }
+
+    window.addEventListener("DOMContentLoaded", function() {
+      [].forEach.call(document.querySelectorAll('.tel'), function(input) {
+        var keyCode;
+
+        function mask(event) {
+          event.keyCode && (keyCode = event.keyCode);
+          var pos = this.selectionStart;
+          if (pos < 3) event.preventDefault();
+          var matrix = "+7 (___) ___ ____",
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = this.value.replace(/\D/g, ""),
+            new_value = matrix.replace(/[_\d]/g, function(a) {
+              return i < val.length ? val.charAt(i++) : a
+            });
+          i = new_value.indexOf("_");
+          if (i != -1) {
+            i < 5 && (i = 3);
+            new_value = new_value.slice(0, i)
+          }
+          var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+            function(a) {
+              return "\\d{1," + a.length + "}"
+            }).replace(/[+()]/g, "\\$&");
+          reg = new RegExp("^" + reg + "$");
+          if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
+            this.value = new_value;
+          }
+          if (event.type == "blur" && this.value.length < 5) {
+            this.value = "";
+          }
+        }
+
+        input.addEventListener("input", mask, false);
+        input.addEventListener("focus", mask, false);
+        input.addEventListener("blur", mask, false);
+        input.addEventListener("keydown", mask, false);
+
+      });
+
+    });
   </script>
+  @endif
 </body>
 
 </html>

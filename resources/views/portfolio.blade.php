@@ -7,7 +7,7 @@
       <div class="service-row">
 
         @foreach($works as $work)
-        <div class="service-item" data-key="{{$work->work_id}}">
+        <div class="service-item scalable" data-key="{{$work->work_id}}">
           <img src="{{asset('img/portfolio/' . $work->image)}}" alt="" class="item__img">
         </div>
         @endforeach

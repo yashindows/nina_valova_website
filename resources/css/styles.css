@@ -11,13 +11,17 @@
     outline: none;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 :root {
     --bg-color-primary: #e8e8e8;
     --header-bg-color: #f3eeeb;
     --text-color-primary: #000;
     --accent-color: #d4b2a6;
 
-    --mark-size-value: 40px;
+    --mark-size-value: 37px;
 }
 
 body {
@@ -264,7 +268,7 @@ button,
 .quick-info__image {
     max-width: 710px;
     height: 680px;
-    transform: translateX(-100px);
+    transform: translateX(-30px);
 }
 
 .info {
@@ -274,7 +278,6 @@ button,
     max-width: 580px;
     flex: 0 0 50%;
     align-items: end;
-    transform: translateX(-55px);
     justify-content: center;
 }
 
@@ -429,13 +432,13 @@ dialog {
     row-gap: inherit;
 }
 
-form {
+dialog form {
     display: flex;
     flex-direction: column;
     row-gap: 45px;
     position: absolute;
     width: 70%;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -443,7 +446,7 @@ form {
 .popup-input {
     border: 1px solid var(--text-color-primary);
     padding: 10px;
-    max-width: none;
+    width: 100%;
 }
 
 .close-popup {
@@ -824,4 +827,40 @@ form {
     form {
         row-gap: 10px;
     }
+}
+
+.time-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 25px;
+}
+
+.time-item {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 150px;
+    overflow-y: auto;
+    gap: 20px;
+}
+
+label {
+    display: block;
+    padding: 8px 20px;
+    border: 1px solid var(--text-color-primary);
+    font-size: 18px;
+    transition: 0.1s;
+}
+
+label:hover {
+    background-color: #f1f1f1;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #000;
+    color: #fff;
 }

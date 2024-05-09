@@ -21,7 +21,7 @@
   </section>
   <section class="quick-info">
     <div class="container">
-      <img class="quick-info__image" src="{{asset('img/ivy-aralia-nizar-420dKcPcvAE-unsplash 1.png')}}" alt="" />
+      <img class="quick-info__image" src="{{asset('img/9bc4436e-84bd-47cd-a607-b404c6d04001.webp')}}" alt="" />
       <div class="info">
         <p class="info-title section-title-text">
           ПЕРМАНЕНТНЫЙ МАКИЯЖ ПРОЦЕДУРА, КОТОРАЯ ВЫПОЛНЯЕТСЯ В ДВА ЭТАПА:

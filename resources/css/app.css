@@ -1,3 +1,39 @@
-@import url('./reset.css');
-@import url('./styles.css');
-@import url('./grid.css');
+@import url("./reset.css");
+@import url("./styles.css");
+@import url("./grid.css");
+@import url("./admin.css");
+
+/* Помечаем поля, у которых возникли ошибки валидации: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Скрываем все этапы по умолчанию: */
+.tab {
+    display: none;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+/* Создаем кружки, которые показывают этапы формы: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Метим активный этап: */
+.step.active {
+    opacity: 1;
+}
+
+/* Метим завершенные и валидные этапы: */
+.step.finish {
+    background-color: #000;
+    opacity: 1;
+}
