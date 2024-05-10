@@ -40,6 +40,8 @@
     background-color: #fff;
     width: 100%;
     padding: 10px;
+    border: 1px solid #000;
+    font-size: 18px;
 }
 
 .content-form {
@@ -47,6 +49,7 @@
     width: 80%;
     flex-direction: column;
     row-gap: 20px;
+    align-items: center;
 }
 
 .content-form.active {
@@ -58,6 +61,13 @@
     color: #fff;
 }
 
+#admin-file,
+#guide-file {
+    display: none;
+}
+
 .admin-content {
-    width: 100%;
+    display: flex;
+    width: 80%;
+    justify-content: center;
 }

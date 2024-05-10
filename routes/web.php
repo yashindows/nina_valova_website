@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GridController;
 use App\Http\Controllers\MainPageController;
@@ -38,6 +39,4 @@ Route::get('/services', [GridController::class, 'services'])->name('services.ind
 
 Route::post('/send', [TelegramController::class, 'sendTelegramMessage']);
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', [AdminController::class, 'index']);
