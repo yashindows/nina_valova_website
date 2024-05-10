@@ -8,6 +8,7 @@ use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\MyPlaceController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TelegramController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +40,6 @@ Route::get('/services', [GridController::class, 'services'])->name('services.ind
 
 Route::post('/send', [TelegramController::class, 'sendTelegramMessage']);
 
-Route::get('/admin', [AdminController::class, 'index']);
+Auth::routes();
+
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

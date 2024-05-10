@@ -3,10 +3,6 @@ const dashboardItems = dashboard.querySelectorAll(".btn");
 const content = document.querySelector(".admin-content");
 const contentForms = content.querySelectorAll("form");
 
-// if(sessionStorage.getItem('tab')){
-//   tabs[]
-// }
-
 if (sessionStorage.length > 0) {
     dashboardItems.forEach((tab) => {
         if (Array.prototype.includes.call(tab.classList, "active")) {

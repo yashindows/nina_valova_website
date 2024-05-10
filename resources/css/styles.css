@@ -219,6 +219,7 @@ button,
     letter-spacing: 3px;
     max-width: 400px;
     transition: 0.1s;
+    border-radius: 0;
 }
 
 .btn:hover {

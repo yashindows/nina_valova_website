@@ -1,23 +1,5 @@
-@extends('layouts.index', ['title' => 'Админ-панель'])
+@extends('layouts.app', ['title' => 'Админ-панель'])
 @section('content')
-<!-- <main class="main">
-  <section class="admin">
-    <div class="container">
-      <div class="section-title-text">Панель Администратора</div>
-      <form class="admin-form" action="">
-        <div>
-          <label class="admin-label" for="login">Логин</label>
-          <input class="admin-field" id="login" type="text">
-        </div>
-        <div>
-          <label class="admin-label" for="pass">Пароль</label>
-          <input class="admin-field" id="pass" type="password">
-        </div>
-        <input class="btn" type="submit" value="ВХОД">
-      </form>
-    </div>
-  </section>
-</main> -->
 <div class="main">
   <section class="admin">
     <div class="container">
