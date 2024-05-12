@@ -47,7 +47,7 @@
 
 .content-form {
     display: none;
-    width: 80%;
+    width: 95%;
     flex-direction: column;
     row-gap: 20px;
     align-items: center;
@@ -142,4 +142,19 @@ input[type="file"] {
 
 label img {
     max-width: 100px;
+}
+
+.btns {
+    text-align: end;
+}
+
+@media (max-width: 630px) {
+    .admin-body {
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+    }
+    .admin-dashboard {
+        text-align: center;
+    }
 }

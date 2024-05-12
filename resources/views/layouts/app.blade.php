@@ -31,7 +31,7 @@
                     @if(isset($asset))
                     <img src="{{ $asset->logo }}" alt="logo" />
                     @else
-                    Назад
+                    На главную
                     @endif
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
