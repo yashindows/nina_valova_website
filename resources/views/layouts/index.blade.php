@@ -15,10 +15,11 @@
 <body>
   <div class="wrapper">
     <header class="header">
+      @if(isset($asset))
       <div class="container">
         <div class="header-navigation">
           <a href="{{ route('main.index') }}" class="header-logo">
-            <img src="/logo.svg" alt="logo" />
+            <img src='/{{$asset->logo}}' alt="logo" />
           </a>
           <nav class="header-menu">
             <ul class="menu__body">
@@ -45,13 +46,13 @@
             <div class="info-box">
               <img src="{{asset('img/icons/location.svg')}}" alt="icon" />
               <div class="box-text">
-                <p>Москва,<br />Нахимовский проспект 7 к1</p>
+                <p>{{$asset->city}},<br />{{ $asset->address }}</p>
               </div>
             </div>
             <div class="info-box">
               <img src="{{asset('img/icons/phone.svg')}}" alt="icon" />
               <div class="box-text">
-                <a class="phone" href="tel:+79257317383">+7 (925) 731-73-83</a>
+                <a class="phone" href="tel:+{{$asset->phone}}">{{ $asset->phone }}</a>
                 <p class="phone-label">Обратный звонок</p>
               </div>
               <p></p>
@@ -64,6 +65,59 @@
           </div>
         </div>
       </div>
+      @else
+      @foreach($assets as $asset)
+      <div class="container">
+        <div class="header-navigation">
+          <a href="{{ route('main.index') }}" class="header-logo">
+            <img src='/{{$asset->logo}}' alt="logo" />
+          </a>
+          <nav class="header-menu">
+            <ul class="menu__body">
+              <li class="menu__item">
+                <a href="{{ route('about') }}" class="menu__link">ОБО МНЕ</a>
+              </li>
+              <li class="menu__item">
+                <a href="{{ route('services.index') }}" class="menu__link">УСЛУГИ</a>
+              </li>
+              <li class="menu__item">
+                <a href="{{ route('portfolio.index') }}" class="menu__link">ПОРТФОЛИО</a>
+              </li>
+              <li class="menu__item">
+                <a href="{{ route('guide') }}" class="menu__link">ВАЖНО ЗНАТЬ</a>
+              </li>
+              <li class="menu__item">
+                <a href="{{ route('contacts') }}" class="menu__link">КОНТАКТЫ</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header-info-wrapper">
+          <div class="header-info">
+            <div class="info-box">
+              <img src="{{asset('img/icons/location.svg')}}" alt="icon" />
+              <div class="box-text">
+                <p>{{$asset->city}},<br />{{ $asset->address }}</p>
+              </div>
+            </div>
+            <div class="info-box">
+              <img src="{{asset('img/icons/phone.svg')}}" alt="icon" />
+              <div class="box-text">
+                <a class="phone" href="tel:+{{$asset->phone}}">{{ $asset->phone }}</a>
+                <p class="phone-label">Обратный звонок</p>
+              </div>
+              <p></p>
+            </div>
+          </div>
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      @endforeach
+      @endif
     </header>
     @yield('content')
     <footer class="footer">

@@ -9,6 +9,7 @@
     position: static;
     transform: none;
     max-width: 525px;
+    width: 80%;
 }
 
 .admin .container {
@@ -56,13 +57,27 @@
     display: flex;
 }
 
+.admin .btn {
+    width: 100%;
+}
+
+.admin-body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.admin-dashboard {
+    flex: 0 0 30%;
+    min-width: 250px;
+}
+
 .admin .btn.active {
     background-color: #000;
     color: #fff;
 }
 
-#admin-file,
-#guide-file {
+input[type="file"] {
     display: none;
 }
 
@@ -74,24 +89,57 @@
 
 .order-item {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
     row-gap: 15px;
     font-size: 18px;
-    align-items: start;
+    /* align-items: start; */
     width: 100%;
     padding: 15px;
     box-shadow: 0 0 5px #00000049;
 }
 
-.order-item button {
+.order-item img {
+    max-width: 100px;
+    height: auto;
+}
+
+.order-item button,
+.btns a {
     text-transform: none;
     padding: 5px;
     border: 1px solid #000;
     color: #000;
     transition: 0.1s;
+    display: inline-block;
 }
 
-.order-item button:hover {
+.order-item button:hover,
+.btns a:hover {
     color: #fff;
     background-color: #000;
+}
+
+.hidden {
+    opacity: 0;
+    position: absolute;
+}
+
+.edit .container,
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit .container {
+    row-gap: 35px;
+}
+
+.edit-form {
+    width: 100%;
+    row-gap: 15px;
+}
+
+label img {
+    max-width: 100px;
 }

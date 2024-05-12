@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MainPageAsset;
 use App\Models\Order;
+use App\Models\PortfolioWork;
+use App\Models\ServiceWork;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +28,11 @@ class HomeController extends Controller
     public function index()
     {
         $orders = Order::all();
+        $services = ServiceWork::all();
+        $portfolio = PortfolioWork::all();
+        $assets = MainPageAsset::all();
 
-        return view('admin', compact('orders'));
+
+        return view('admin', compact('orders', 'services', 'portfolio', 'assets'));
     }
 }

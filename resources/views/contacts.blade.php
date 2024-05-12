@@ -8,20 +8,22 @@
     <i class="fa-solid fa-xmark"></i>
   </button>
   <div class="contacts-title">КОНТАКТЫ</div>
+  @foreach($assets as $asset)
   <div class="contacts-info">
     <div class="info__address">
       <p class="info__title">АДРЕС:</p>
-      <p>Москва, Нахимовский проспект 7 к1</p>
+      <p>{{$asset->city}}, {{$asset->address}}</p>
     </div>
     <div class="info__phone">
       <p class="info__title">ТЕЛЕФОН:</p>
-      <a class="contact__link" href="tel:+79257317383">+7 (925) 731-73-83</a>
+      <a class="contact__link" href="tel:+{{$asset->phone}}">+{{$asset->phone}}</a>
     </div>
     <div class="info__email">
       <p class="info__title">E-MAIL:</p>
-      <a class="contact__link" href="mailto:ninavalova2202@gmail.com">ninavalova2202@gmail.com</a>
+      <a class="contact__link" href="mailto:{{$asset->email}}">{{$asset->email}}</a>
     </div>
   </div>
+  @endforeach
   <div class="contacts-media">
     <a href=""><img src="{{asset('img/icons/whatsapp-icon.svg')}}" alt="media-icon" /></a>
     <a href=""><img src="{{asset('img/icons/instagram-icon.svg')}}" alt="media-icon" /></a>

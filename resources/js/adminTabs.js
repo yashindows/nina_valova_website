@@ -1,7 +1,7 @@
 const dashboard = document.querySelector(".admin-dashboard");
 const dashboardItems = dashboard.querySelectorAll(".btn");
 const content = document.querySelector(".admin-content");
-const contentForms = content.querySelectorAll("form");
+const contentForms = content.querySelectorAll(".content-form");
 
 if (sessionStorage.length > 0) {
     dashboardItems.forEach((tab) => {

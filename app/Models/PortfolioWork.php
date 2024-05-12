@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PortfolioWork extends Model
 {
+    protected $fillable = ['title'];
     use HasFactory;
 }

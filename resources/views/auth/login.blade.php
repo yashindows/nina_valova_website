@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app', [$title = "Админ панель - вход"])
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -18,9 +18,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +32,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -58,9 +58,9 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -69,5 +69,35 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+<main class="main">
+    <section class="admin">
+        <div class="container">
+            <div class="section-title-text">Панель Администратора</div>
+            <form class="admin-form" method="POST" action="{{ route('login') }}">
+                @csrf
+                <div>
+                    <label class="admin-label" for="login">Email</label>
+                    <input class="admin-field @error('email') is-invalid @enderror" id=" login" type="text" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div>
+                    <label class="admin-label" for="pass">Пароль</label>
+                    <input class="admin-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" id="pass" type="password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+                </div>
+                <input class="btn" type="submit" value="ВХОД">
+            </form>
+        </div>
+    </section>
+</main>
 @endsection
