@@ -52,7 +52,7 @@
             <div class="info-box">
               <img src="{{asset('img/icons/phone.svg')}}" alt="icon" />
               <div class="box-text">
-                <a class="phone" href="tel:+{{$asset->phone}}">{{ $asset->phone }}</a>
+                <a class="phone formatted" href="tel:+{{$asset->phone}}">{{ $asset->phone }}</a>
                 <p class="phone-label">Обратный звонок</p>
               </div>
               <p></p>
@@ -103,7 +103,7 @@
             <div class="info-box">
               <img src="{{asset('img/icons/phone.svg')}}" alt="icon" />
               <div class="box-text">
-                <a class="phone" href="tel:+{{$asset->phone}}">{{ $asset->phone }}</a>
+                <a class="phone formatted" href="tel:+{{$asset->phone}}">{{ $asset->phone }}</a>
                 <p class="phone-label">Обратный звонок</p>
               </div>
               <p></p>
@@ -311,6 +311,22 @@
     });
   </script>
   @endif
+  <script>
+    function formatPhoneNumber(phoneNumber) {
+      const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+      const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})$/);
+      if (match) {
+        return `+${match[1]} (${match[2]}) ${match[3]}-${match[4]}-${match[5]}`;
+      }
+      return null;
+    }
+
+    const phoneNumbers = document.querySelectorAll('.formatted');
+    phoneNumbers.forEach(el => {
+      const formattedPhoneNumber = formatPhoneNumber(el.innerText)
+      el.innerText = formattedPhoneNumber
+    })
+  </script>
 </body>
 
 </html>

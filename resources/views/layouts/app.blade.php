@@ -27,8 +27,12 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('main.index') }}">
-                    <img src="/logo.svg" alt="logo" />
+                <a class="navbar-brand header-logo" href="{{ route('main.index') }}">
+                    @if(isset($asset))
+                    <img src="{{ $asset->logo }}" alt="logo" />
+                    @else
+                    Назад
+                    @endif
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

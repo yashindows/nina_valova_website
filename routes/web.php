@@ -26,6 +26,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainPageController::class, 'index'])->name('main.index');
 
+Route::match(['put', 'patch'], '/edit_title/{asset}', [AdminController::class, 'updateTitle'])->name('main.updateTitle');
+
+Route::match(['put', 'patch'], '/edit_logo/{asset}', [AdminController::class, 'updateLogo'])->name('main.updateLogo');
+
+Route::match(['put', 'patch'], '/edit_mainImg/{asset}', [AdminController::class, 'updateMainImg'])->name('main.updateMainImg');
+
+Route::match(['put', 'patch'], '/edit_contacts/{asset}', [AdminController::class, 'updateContactsInfo'])->name('main.updateContacts');
+
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
@@ -45,6 +53,10 @@ Route::match(['put', 'patch'], '/portfolio/{item}/updateImage', [AdminController
 
 Route::get('/services', [GridController::class, 'services'])->name('services.index');
 
+Route::post('/create_newService', [AdminController::class, 'createService'])->name('services.create');
+
+Route::post('/create_newPortfolio', [AdminController::class, 'createPortfolioWork'])->name('portfolio.create');
+
 Route::delete('/services/{service}', [AdminController::class, 'destroyService'])->name('services.destroy');
 
 Route::get('/edit_service/{service}', [AdminController::class, 'editFormService'])->name('edit_service.show');
@@ -60,3 +72,21 @@ Auth::routes();
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::delete('/orders/{order}', [AdminController::class, 'destroyOrder'])->name('orders.destroy');
+
+Route::post('/create_orderTime', [AdminController::class, 'createOrderTime'])->name('orders.create');
+
+Route::delete('/procedures/{procedure}', [AdminController::class, 'destroyProcedure'])->name('procedures.destroy');
+
+Route::get('/create_service', function () {
+    return view('createService');
+});
+
+Route::get('/create_portfolioWork', function () {
+    return view('createPortfolioWork');
+});
+
+Route::get('/create_orderTime', function () {
+    return view('createOrderTime');
+});
+
+Route::post('/uploadPDF', [AdminController::class, 'uploadPDF']);

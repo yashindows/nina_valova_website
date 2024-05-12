@@ -17,30 +17,45 @@
           <div class="content-form active" method="post">
             @csrf
             @foreach($assets as $asset)
-            <form action="" method="post" class="edit-form">
-              <input class="admin-field" type="text" value="{{ $asset->title }}" placeholder="Введите новый заголовок для главной">
+            <form action="{{ route('main.updateTitle', $asset->id) }}" method="post" class="edit-form">
+              @csrf
+              @method('PUT')
+              <input class="admin-field" type="text" value="{{ $asset->title }}" name="title" placeholder="Введите новый заголовок для главной">
               <button class="btn">Применить</button>
             </form>
-            <form action="" class="edit-form" method="post">
-              <label class="admin-field" for="admin-file">Загрузить логотип</label>
-              <input id="admin-file" type="file">
+            <form action="{{ route('main.updateLogo', $asset->id) }}" enctype="multipart/form-data" class="edit-form" method="post">
+              @csrf
+              @method('PUT')
+              <label class="admin-field" for="logo-file">
+                <img src="/{{ $asset->logo }}" alt="">
+                Загрузить логотип
+              </label>
+              <input id="logo-file" type="file" name="logo">
               <button class="btn">Изменить логотип</button>
             </form>
-            <form action="" method="post" class="edit-form">
-              <label class="admin-field" for="admin-file">Загрузить фото на главной</label>
-              <input id="admin-file" type="file">
+            <form action="{{ route('main.updateMainImg', $asset->id) }}" enctype="multipart/form-data" class="edit-form" method="post">
+              @csrf
+              @method('PUT')
+              <label class="admin-field" for="main-file">
+                <img src="/img/{{ $asset->main_image }}" alt="">
+                Загрузить фото на главной</label>
+              <input id="main-file" name="main_image" type="file">
               <button class="btn">Изменить фото на главной</button>
             </form>
             @endforeach
           </div>
-          <form class="content-form" action="" method="post">
+          <form class="content-form" action="/uploadPDF" enctype="multipart/form-data" method="post">
             @csrf
             <label class="admin-field" for="guide-file">Загрузить файл</label>
-            <input id="guide-file" type="file">
+            <input id="guide-file" type="file" name="pdf_file">
             <button class="btn">Применить</button>
           </form>
           <div class="content-form">
+            <a href="/create_orderTime" class="btn">Новое время для записи</a>
             @foreach($orders as $order)
+            <div class="section-title">
+              Занятые записи
+            </div>
             <form class="order-item" method="POST" action="{{ route('orders.destroy', $order->id) }}">
               @csrf
               @method('DELETE')
@@ -51,8 +66,24 @@
               <button>Снять запись</button>
             </form>
             @endforeach
+            <div class="section-title">
+              Доступные записи
+            </div>
+            @foreach($procedures as $procedure)
+            <form class="order-item" method="POST" action="{{ route('procedures.destroy', $procedure->id) }}">
+              @csrf
+              @method('DELETE')
+              <div class="order-info">
+                <div>
+                  <span>Дата</span> - <span>{{ $procedure->procedure_date }}</span>
+                </div>
+              </div>
+              <button>Удалить</button>
+            </form>
+            @endforeach
           </div>
           <div class="content-form">
+            <a href="/create_service" class="btn">Добавить услугу</a>
             @foreach($services as $service)
             <form method="POST" action="{{ route('services.destroy', $service->id) }}" class="order-item">
               @csrf
@@ -70,7 +101,8 @@
             </form>
             @endforeach
           </div>
-          <div action="" class="content-form">
+          <div class="content-form">
+            <a href="create_portfolioWork" class="btn">Добавить работу</a>
             @foreach($portfolio as $item)
             <form method="POST" action="{{ route('portfolio.destroy', $item->id) }}" class="order-item">
               @csrf
@@ -88,16 +120,19 @@
             </form>
             @endforeach
           </div>
-          <form action="" class="content-form">
-            @csrf
+          <div class="content-form">
             @foreach($assets as $asset)
-            <input name="main_city" class="admin-field" type="text" placeholder="Введите новый город" value="{{ $asset->city }}">
-            <input name="main_address" class="admin-field" type="text" placeholder="Введите новый адрес" value="{{ $asset->address }}">
-            <input name="main_phone" class="admin-field" type="text" placeholder="Введите новый телефон" value="+{{ $asset->phone }}">
-            <input name="main_email" class="admin-field" type="text" placeholder="Введите новый Email" value="{{ $asset->email }}">
-            <button class="btn">Применить</button>
-            @endforeach
-          </form>
+            <form action="{{ route('main.updateContacts', $asset->id) }}" class="edit-form" method="post">
+              @csrf
+              @method('PUT')
+              <input name="city" class="admin-field" type="text" placeholder="Введите новый город" value="{{ $asset->city }}">
+              <input name="address" class="admin-field" type="text" placeholder="Введите новый адрес" value="{{ $asset->address }}">
+              <input name="phone" class="admin-field" type="number" placeholder="Введите новый телефон" value="{{ $asset->phone }}">
+              <input name="email" class="admin-field" type="text" placeholder="Введите новый Email" value="{{ $asset->email }}">
+              <button class="btn">Применить</button>
+            </form>
+          </div>
+          @endforeach
         </div>
       </div>
     </div>

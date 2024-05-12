@@ -136,6 +136,9 @@
           пигмент повторно.
         </p>
       </div>
+      @foreach($documents as $document)
+      <a href="" class="btn" download="/pdf_files/{{ $document->file_path }}">Скачать PDF</a>
+      @endforeach
     </div>
   </section>
 </main>

@@ -16,7 +16,7 @@
     </div>
     <div class="info__phone">
       <p class="info__title">ТЕЛЕФОН:</p>
-      <a class="contact__link" href="tel:+{{$asset->phone}}">+{{$asset->phone}}</a>
+      <a class="contact__link formatted" href="tel:+{{$asset->phone}}">{{$asset->phone}}</a>
     </div>
     <div class="info__email">
       <p class="info__title">E-MAIL:</p>

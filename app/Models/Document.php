@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MainPageAsset extends Model
+class Document extends Model
 {
-    protected $fillable = [
-        'title', 'city', 'address', 'phone', 'email'
-    ];
     use HasFactory;
 }

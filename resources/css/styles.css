@@ -154,6 +154,10 @@ button,
     column-gap: 15px;
 }
 
+.header-logo {
+    max-width: 150px;
+}
+
 /* main */
 
 .main {
@@ -471,6 +475,7 @@ dialog form {
     display: flex;
     flex-direction: column;
     row-gap: 25px;
+    margin-bottom: 30px;
 }
 
 .guide-text li {
