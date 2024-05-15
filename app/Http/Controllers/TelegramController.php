@@ -12,16 +12,18 @@ class TelegramController extends Controller
     {
         $message = "Получена новая форма с данными:\n";
 
-        $formData = $request->only('name', 'phone', 'time', 'master');
+        $formData = $request->only('name', 'phone', 'day', 'time', 'service', 'master');
 
         $message .= "Имя: " . $formData['name'] . "\n";
         $message .= "Телефон: " . $formData['phone'] . "\n";
+        $message .= "День: " . $formData['day'] . "\n";
         $message .= "Время: " . $formData['time'] . "\n";
+        $message .= "Услуга: " . $formData['service'] . "\n";
         $message .= "Мастер: " . $formData['master'] . "\n";
 
         Order::create([
             'master_name' => $formData['master'],
-            'procedure_time' => $formData['time'],
+            'procedure_time' => $formData['day'] . ' ' . $formData['time'],
         ]);
 
         $client = new Client([

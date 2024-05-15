@@ -142,11 +142,33 @@
 
         <div class="tab">
           <div class="time-section">
-            <div class="section-title-text">Выберите дату и время</div>
+            <div class="section-title-text">Выберите день</div>
             <div class="time-item">
               @foreach($procedures as $procedure)
-              <input type="radio" id="{{ $procedure->id }}" name="time" value="{{$procedure->procedure_date}}" />
-              <label for="{{ $procedure->id }}">{{$procedure->procedure_date}}</label>
+              <input type="radio" id="day{{ $procedure->id }}" name="day" value="{{$procedure->procedure_day}}" />
+              <label for="day{{ $procedure->id }}">{{$procedure->procedure_day}}</label>
+              @endforeach
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="time-section">
+            <div class="section-title-text">Выберите время</div>
+            <div class="time-item">
+              @foreach($procedures as $procedure)
+              <input type="radio" id="time{{ $procedure->id }}" name="time" value="{{$procedure->procedure_time}}" />
+              <label for="time{{ $procedure->id }}">{{$procedure->procedure_time}}</label>
+              @endforeach
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="time-section">
+            <div class="section-title-text">Выберите услугу</div>
+            <div class="time-item">
+              @foreach($services as $service)
+              <input type="radio" id="service{{ $service->id }}" name="service" value="{{$service->work_title}}" />
+              <label for="service{{ $service->id }}">{{$service->work_title}}</label>
               @endforeach
             </div>
           </div>
@@ -171,6 +193,8 @@
 
         <!-- Кружки, показывающие этапы формы -->
         <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>

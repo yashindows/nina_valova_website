@@ -52,10 +52,10 @@
           </form>
           <div class="content-form">
             <a href="/create_orderTime" class="btn">Новое время для записи</a>
-            @foreach($orders as $order)
             <div class="section-title">
               Занятые записи
             </div>
+            @foreach($orders as $order)
             <form class="order-item" method="POST" action="{{ route('orders.destroy', $order->id) }}">
               @csrf
               @method('DELETE')

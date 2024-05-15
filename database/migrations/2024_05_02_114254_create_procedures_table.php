@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('procedures', function (Blueprint $table) {
             $table->id();
-            $table->string('procedure_date');
+            $table->string('procedure_day');
+            $table->string('procedure_time');
             $table->timestamps();
         });
     }

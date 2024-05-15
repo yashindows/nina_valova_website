@@ -17,9 +17,10 @@ class GridController extends Controller
         $works = ServiceWork::all();
         $procedures = Procedure::all();
         $masters = Master::all();
+        $services = $works;
 
 
-        return view('services', compact('works', 'procedures', 'masters', 'assets'));
+        return view('services', compact('works', 'procedures', 'masters', 'assets', 'services'));
     }
     public function portfolio()
     { // параметры сюда
@@ -27,8 +28,9 @@ class GridController extends Controller
         $works = PortfolioWork::all();
         $procedures = Procedure::all();
         $masters = Master::all();
+        $services = ServiceWork::all();
 
 
-        return view('portfolio', compact('works', 'procedures', 'masters', 'assets'));
+        return view('portfolio', compact('works', 'procedures', 'masters', 'assets', 'services'));
     }
 }

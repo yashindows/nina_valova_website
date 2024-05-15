@@ -202,10 +202,11 @@ class AdminController extends Controller
 
     public function createOrderTime(Request $request)
     {
-        $order_time = new Procedure();
-        $order_time->procedure_date = $request->procedure_date;
+        $order_data = new Procedure();
+        $order_data->procedure_day = $request->procedure_day;
+        $order_data->procedure_time = $request->procedure_time;
 
-        $order_time->save();
+        $order_data->save();
 
         return redirect('/admin');
     }
