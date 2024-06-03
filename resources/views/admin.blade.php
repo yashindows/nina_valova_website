@@ -55,13 +55,13 @@
             <div class="section-title">
               Занятые записи
             </div>
-            @foreach($orders as $order)
-            <form class="order-item" method="POST" action="{{ route('orders.destroy', $order->id) }}">
+            @foreach($sold as $closed)
+            <form class="order-item" method="POST" action="{{ route('orders.destroy', $closed->id) }}">
               @csrf
               @method('DELETE')
               <div class="order-info">
-                <div><span>Время</span> - <span>{{ $order->procedure_time }}</span></div>
-                <div><span>Мастер</span> - <span>{{ $order->master_name }}</span></div>
+                <div><span>Время</span> - <span>{{ $closed->day }}</span></div>
+                <div><span>Мастер</span> - <span>{{ $closed->master }}</span></div>
               </div>
               <button>Снять запись</button>
             </form>
@@ -75,7 +75,7 @@
               @method('DELETE')
               <div class="order-info">
                 <div>
-                  <span>Дата</span> - <span>{{ $procedure->procedure_date }}</span>
+                  <span>День</span> - <span>{{ $procedure->procedure_day }}</span>
                 </div>
               </div>
               <button>Удалить</button>

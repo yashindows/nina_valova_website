@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Sold;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,11 @@ class TelegramController extends Controller
         Order::create([
             'master_name' => $formData['master'],
             'procedure_time' => $formData['day'] . ' ' . $formData['time'],
+        ]);
+
+        Sold::create([
+            'day' => $formData['day'],
+            'master' => $formData['master']
         ]);
 
         $client = new Client([

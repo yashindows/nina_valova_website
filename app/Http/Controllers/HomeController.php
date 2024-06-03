@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\PortfolioWork;
 use App\Models\Procedure;
 use App\Models\ServiceWork;
+use App\Models\Sold;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,8 +34,9 @@ class HomeController extends Controller
         $portfolio = PortfolioWork::all();
         $assets = MainPageAsset::all();
         $procedures = Procedure::all();
+        $sold = Sold::all();
 
 
-        return view('admin', compact('orders', 'services', 'portfolio', 'assets', 'procedures'));
+        return view('admin', compact('orders', 'services', 'portfolio', 'assets', 'procedures', 'sold'));
     }
 }

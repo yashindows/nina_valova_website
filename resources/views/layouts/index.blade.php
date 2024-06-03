@@ -144,9 +144,20 @@
           <div class="time-section">
             <div class="section-title-text">Выберите день</div>
             <div class="time-item">
-              @foreach($procedures as $procedure)
-              <input type="radio" id="day{{ $procedure->id }}" name="day" value="{{$procedure->procedure_day}}" />
-              <label for="day{{ $procedure->id }}">{{$procedure->procedure_day}}</label>
+              @foreach($combObj as $obj)
+              @foreach($obj as $key => $value)
+              @if(isset($value->day))
+              <div class="order-day">
+                <label class="closed" for="day{{$value->id}}">{{$value->day}}</label>
+                <input disabled type="radio" id="day{{$value->id}}" name="day" value="{{$value->day}}" />
+              </div>
+              @elseif(isset($value->procedure_day))
+              <div class="order-day">
+                <input type="radio" id="day{{$value->id}}" name="day" value="{{$value->procedure_day}}" />
+                <label for="day{{$value->id}}">{{$value->procedure_day}}</label>
+              </div>
+              @endif
+              @endforeach
               @endforeach
             </div>
           </div>
@@ -242,6 +253,10 @@
       // Выйти из функции, если какое-нибудь поле текущей вкладки заполнено неверно:
       if (n == 1 && !validateForm()) return false;
       // Скрыть текущую вкладку:
+      steps = document.querySelectorAll('.finish');
+      if (n === -1) {
+        steps[steps.length - 1].classList.remove('finish')
+      }
       x[currentTab].style.display = "none";
       // Увеличить или уменьшить номер текущей вкладки на 1:
       currentTab = currentTab + n;
@@ -350,6 +365,21 @@
       const formattedPhoneNumber = formatPhoneNumber(el.innerText)
       el.innerText = formattedPhoneNumber
     })
+
+    const orders = document.querySelectorAll('.order-day')
+
+
+    const ordersData = []
+    orders.forEach(el => ordersData.push(el.innerText.trim()))
+    const matchData = ordersData.filter((e, i, a) => a.indexOf(e) !== i)
+    // console.log(matchData.length);
+
+
+
+    // console.log(ordersData);
+    for (let i = 0; i < matchData.length; i++) {
+      orders[i + matchData.length].style.display = 'none'
+    }
   </script>
 </body>
 

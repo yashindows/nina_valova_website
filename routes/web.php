@@ -71,7 +71,7 @@ Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::delete('/orders/{order}', [AdminController::class, 'destroyOrder'])->name('orders.destroy');
+Route::delete('/orders/{sold}', [AdminController::class, 'destroyOrder'])->name('orders.destroy');
 
 Route::post('/create_orderTime', [AdminController::class, 'createOrderTime'])->name('orders.create');
 

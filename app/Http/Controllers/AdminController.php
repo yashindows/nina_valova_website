@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\PortfolioWork;
 use App\Models\Procedure;
 use App\Models\ServiceWork;
+use App\Models\Sold;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -98,9 +99,10 @@ class AdminController extends Controller
         return redirect()->route('home');
     }
 
-    public function destroyOrder(Order $order)
+    public function destroyOrder(Order $order, Sold $sold)
     {
         $order->delete();
+        $sold->delete();
         return redirect()->route('home');
     }
 

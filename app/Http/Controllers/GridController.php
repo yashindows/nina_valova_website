@@ -7,6 +7,7 @@ use App\Models\Master;
 use App\Models\PortfolioWork;
 use App\Models\Procedure;
 use App\Models\ServiceWork;
+use App\Models\Sold;
 use Illuminate\Http\Request;
 
 class GridController extends Controller
@@ -17,10 +18,11 @@ class GridController extends Controller
         $works = ServiceWork::all();
         $procedures = Procedure::all();
         $masters = Master::all();
+        $sold = Sold::all();
         $services = $works;
 
 
-        return view('services', compact('works', 'procedures', 'masters', 'assets', 'services'));
+        return view('services', compact('works', 'procedures', 'masters', 'assets', 'services', 'sold'));
     }
     public function portfolio()
     { // параметры сюда
@@ -29,8 +31,10 @@ class GridController extends Controller
         $procedures = Procedure::all();
         $masters = Master::all();
         $services = ServiceWork::all();
+        $sold = Sold::all();
 
 
-        return view('portfolio', compact('works', 'procedures', 'masters', 'assets', 'services'));
+
+        return view('portfolio', compact('works', 'procedures', 'masters', 'assets', 'services', 'sold'));
     }
 }
