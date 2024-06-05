@@ -18,7 +18,9 @@ class AboutController extends Controller
         $masters = Master::all();
         $sold = Sold::all();
         $services = ServiceWork::all();
+        $combObj = [$sold, $procedures];
 
-        return view('about', compact('procedures', 'masters', 'assets', 'sold', 'services'));
+
+        return view('about', compact('procedures', 'masters', 'assets', 'sold', 'services', 'combObj'));
     }
 }

@@ -20,9 +20,10 @@ class GridController extends Controller
         $masters = Master::all();
         $sold = Sold::all();
         $services = $works;
+        $combObj = [$sold, $procedures];
 
 
-        return view('services', compact('works', 'procedures', 'masters', 'assets', 'services', 'sold'));
+        return view('services', compact('works', 'procedures', 'masters', 'assets', 'services', 'sold', 'combObj'));
     }
     public function portfolio()
     { // параметры сюда
@@ -32,9 +33,10 @@ class GridController extends Controller
         $masters = Master::all();
         $services = ServiceWork::all();
         $sold = Sold::all();
+        $combObj = [$sold, $procedures];
 
 
 
-        return view('portfolio', compact('works', 'procedures', 'masters', 'assets', 'services', 'sold'));
+        return view('portfolio', compact('works', 'procedures', 'masters', 'assets', 'services', 'sold', 'combObj'));
     }
 }
